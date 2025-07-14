@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thay đổi ảnh đại diện"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_text"
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <!-- Option Camera -->
+        <LinearLayout
+            android:id="@+id/layoutCamera"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_camera"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="Chụp ảnh" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chụp ảnh"
+                android:textSize="14sp"
+                android:textColor="@color/primary_text" />
+
+        </LinearLayout>
+
+        <!-- Option Gallery -->
+        <LinearLayout
+            android:id="@+id/layoutGallery"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_gallery"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="Chọn từ thư viện" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thư viện"
+                android:textSize="14sp"
+                android:textColor="@color/primary_text" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Cancel button -->
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Hủy"
+        android:textColor="@color/secondary_text"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="16dp"
+        style="@style/Widget.Material3.Button.TextButton" />
+
+</LinearLayout>

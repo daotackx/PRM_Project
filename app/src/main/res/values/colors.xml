@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- App Theme Colors - Updated với Light Pink làm chủ đạo -->
+    <color name="primary_color">#FFB6C1</color>
+    <color name="primary_dark">#FF91A4</color>
+    <color name="primary_light">#FFD4DC</color>
+    <color name="accent_color">#FF8A9B</color>
+    <color name="primary_button">#FFB6C1</color>
+    
+    <!-- Background Colors -->
+    <color name="background_gradient">#FFF0F5</color>
+    <color name="input_background">#FFFFFF</color>
+ <color name="background_light">#F5F5F5</color>
+     <color name="notification_unread">#FFF3E0</color>
+      <!-- Divider color -->
+    <color name="divider_color">#E0E0E0</color>
+    
+    <!-- Hoặc có thể dùng các màu khác -->
+    <color name="divider_light">#F5F5F5</color>
+    <color name="divider_dark">#BDBDBD</color>
+    
+    <!-- Text Colors -->
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="hint_text">#999999</color>
+    <color name="link_text">#FFB6C1</color>
+    
+    <!-- Status Colors -->
+    <color name="success_color">#4CAF50</color>
+    <color name="warning_color">#FF9800</color>
+    <color name="error_color">#F44336</color>
+    <color name="error_light">#FFEBEE</color>
+    
+    <!-- Icon Colors -->
+    <color name="icon_tint">#757575</color>
+    <color name="icon_pink">#FFB6C1</color>
+
+ <!-- Ranking colors -->
+    <color name="gold_color">#FFD700</color>
+    <color name="silver_color">#C0C0C0</color>
+    <color name="bronze_color">#CD7F32</color>
+</resources>
