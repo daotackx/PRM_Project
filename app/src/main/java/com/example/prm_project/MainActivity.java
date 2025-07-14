@@ -52,14 +52,14 @@ public class MainActivity extends AppCompatActivity {
                 fragment = FragmentFactory.createFragment(FragmentFactory.FragmentType.HOME);
             } else if (itemId == R.id.nav_cart) {
                 fragment = FragmentFactory.createFragment(FragmentFactory.FragmentType.CART);
+            } else if (itemId == R.id.nav_map) {
+                fragment = FragmentFactory.createFragment(FragmentFactory.FragmentType.MAP); // MAP SẼ HOẠT ĐỘNG
             } else if (itemId == R.id.nav_account) {
                 // Chỉ có khi đã login
                 fragment = FragmentFactory.createFragment(FragmentFactory.FragmentType.ACCOUNT);
             } else if (itemId == R.id.nav_login) {
                 // Chỉ có khi chưa login
                 fragment = FragmentFactory.createFragment(FragmentFactory.FragmentType.LOGIN);
-            } else if (itemId == R.id.nav_map) {
-                fragment = FragmentFactory.createFragment(FragmentFactory.FragmentType.MAP);
             }
 
             return loadFragment(fragment);

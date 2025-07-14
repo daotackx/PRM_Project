@@ -56,7 +56,15 @@ public class AccountFragment extends Fragment {
 
     private void setupClickListeners() {
         layoutPersonalInfo.setOnClickListener(v -> navigateToProfileDetail());
-        layoutOrderHistory.setOnClickListener(v -> navigateToOrderHistory());
+        layoutOrderHistory.setOnClickListener(v -> {
+            // Navigate to order history
+            OrderHistoryFragment fragment = new OrderHistoryFragment();
+            requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragmentContainer, fragment)
+                .addToBackStack(null)
+                .commit();
+        });
         layoutSupport.setOnClickListener(v -> navigateToSupport());
         layoutLogout.setOnClickListener(v -> showLogoutDialog());
     }

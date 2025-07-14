@@ -209,10 +209,10 @@ public class CheckoutFragment extends Fragment {
             orderItems.add(orderItem);
         }
 
-        // Create order
+        // Create order với field name đúng
         Order order = new Order(
                 userId,
-                orderItems,
+                orderItems,  // Đây sẽ map với field "items" trong Order
                 subtotal,
                 shipping,
                 total,
@@ -220,7 +220,7 @@ public class CheckoutFragment extends Fragment {
                 phone,
                 note,
                 paymentMethod,
-                "pending" // Order status
+                "pending"
         );
 
         // Save order to Firestore

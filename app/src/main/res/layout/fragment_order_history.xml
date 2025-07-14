@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_light">
+
+    <!-- Header -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@android:color/white"
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@android:drawable/ic_menu_revert"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="Back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Lịch sử đơn hàng"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
+
+    </RelativeLayout>
+
+    <!-- Content -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Order List -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvOrderHistory"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:clipToPadding="false" />
+
+        <!-- Empty State -->
+        <LinearLayout
+            android:id="@+id/llEmptyState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📋"
+                android:textSize="48sp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chưa có đơn hàng nào"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hãy mua sắm ngay để có đơn hàng đầu tiên!"
+                android:textSize="14sp"
+                android:textColor="@android:color/darker_gray"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- Loading -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,17 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.MapFragment">
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- Header -->
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="map Screen - Bán thú cưng"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"/>
+        android:padding="16dp"
+        android:background="@android:color/white"
+        android:elevation="4dp">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@android:drawable/ic_menu_revert"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="Back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="🗺️ Cửa hàng gần bạn"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
+
+    </RelativeLayout>
+
+    <!-- Map Container -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- OpenStreetMap -->
+        <org.osmdroid.views.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- My Location Button -->
+        <ImageView
+            android:id="@+id/btnMyLocation"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
+            android:layout_gravity="bottom|end"
+            android:background="@drawable/circle_background"
+            android:src="@android:drawable/ic_menu_mylocation"
+            android:padding="12dp"
+            android:elevation="6dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="My Location" />
+
+        <!-- Info Panel -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="80dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💡 Hướng dẫn sử dụng"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="• Nhấn vào marker 📍 để xem thông tin chi nhánh\n• Nhấn nút 📍 để đến vị trí hiện tại\n• Pinch để zoom, drag để di chuyển bản đồ"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/darker_gray"
+                    android:lineSpacingExtra="2dp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -200,7 +200,7 @@ public class HomeFragment extends Fragment {
         if (bannerList.isEmpty()) {
             bannerList.add(new BannerItem(1, "Banner 1", "https://cdn0.fahasa.com/media/magentothem/banner7/trangct2_152_840x320.jpg"));
             bannerList.add(new BannerItem(2, "Banner 2", "https://cdn0.fahasa.com/media/wysiwyg/Thang-02-2025/MCBooks_Vang_840x320%20_2.png"));
-            bannerList.add(new BannerItem(3, "Banner 3", "https://via.placeholder.com/400x200/4CAF50/FFFFFF?text=Banner+3"));
+            bannerList.add(new BannerItem(3, "Banner 3", "https://cdn1.fahasa.com/media/magentothem/banner7/TrangCT_0725_Resize_840x320.png"));
         }
 
         // Setup adapter
