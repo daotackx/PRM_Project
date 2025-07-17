@@ -37,10 +37,12 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
+import androidx.annotation.Nullable;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements SearchSuggestionDialogFragment.OnKeywordSelectedListener {
 
     private static final String TAG = "HomeFragment";
 
@@ -256,28 +258,27 @@ public class HomeFragment extends Fragment {
     }
 
     private void setupSearchFunctionality() {
-        edSearch.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.length() > 0) {
-                    // TODO: Implement search functionality
-                    Log.d(TAG, "Searching for: " + s.toString());
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
-
+        edSearch.setFocusable(false); // Ngăn bàn phím tự bật lên
         edSearch.setOnClickListener(v -> {
-            // TODO: Navigate to search page
-            Toast.makeText(getContext(), "Tìm kiếm sách...", Toast.LENGTH_SHORT).show();
+            // Hiển thị dialog gợi ý keyword
+            SearchSuggestionDialogFragment dialog = SearchSuggestionDialogFragment.newInstance(
+                Arrays.asList("Sách thiếu nhi", "Kinh dị", "Văn học", "Khoa học", "Tiểu sử", "Kỹ năng sống", "Elon Musk", "Nhà giả kim", "Harry Potter"),
+                this
+            );
+            dialog.show(getParentFragmentManager(), "SearchSuggestionDialog");
         });
+    }
+
+    @Override
+    public void onKeywordSelected(String keyword) {
+        // Log thử để kiểm tra
+        Log.d("SEARCH", "Keyword selected: " + keyword);
+        SearchResultFragment fragment = SearchResultFragment.newInstance(keyword);
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragmentContainer, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 
     private void setupClickListeners() {
@@ -304,7 +305,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void loadCategories() {
-        db.collection("bookTypes")
+        db.collection("book_types")
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     categoryList.clear();
@@ -375,19 +376,12 @@ public class HomeFragment extends Fragment {
     }
 
     private void onCategoryClick(BookType category) {
-        // TODO: Navigate to category page with books filter
-        Toast.makeText(getContext(), "Danh mục: " + category.getName(), Toast.LENGTH_SHORT).show();
-
-        // Example: Navigate to BookListFragment with category filter
-        /*
-         * BookListFragment fragment = BookListFragment.newInstance(category.getId(),
-         * category.getName());
-         * requireActivity().getSupportFragmentManager()
-         * .beginTransaction()
-         * .replace(R.id.fragmentContainer, fragment)
-         * .addToBackStack(null)
-         * .commit();
-         */
+        BookListFragment fragment = BookListFragment.newInstance(category.getId(), category.getName());
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragmentContainer, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 
     private void onBookClick(Book book) {
