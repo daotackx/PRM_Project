@@ -90,6 +90,8 @@ public class CartFragment extends Fragment {
         cartAdapter = new CartAdapter(cartItems, new CartAdapter.OnCartItemListener() {
             @Override
             public void onQuantityChanged(CartItem item, int newQuantity) {
+                Log.d(TAG, "onQuantityChanged called: " + item.getBook().getName() + ", new quantity: " + newQuantity);
+                
                 if (item.getBook() != null && newQuantity > item.getBook().getQuantity()) {
                     Toast.makeText(getContext(), "Không đủ hàng trong kho", Toast.LENGTH_SHORT).show();
                     return;

@@ -7,11 +7,12 @@ import com.example.prm_project.fragment.CartFragment;
 import com.example.prm_project.fragment.HomeFragment;
 import com.example.prm_project.fragment.LoginFragment;
 import com.example.prm_project.fragment.MapFragment;
+import com.example.prm_project.fragment.NotificationFragment;
 
 public class FragmentFactory {
 
     public enum FragmentType {
-        HOME, CART, ACCOUNT, LOGIN, MAP
+        HOME, CART, ACCOUNT, LOGIN, MAP, NOTIFICATION
     }
 
     public static Fragment createFragment(FragmentType type) {
@@ -26,6 +27,8 @@ public class FragmentFactory {
                 return new LoginFragment();
             case MAP:
                 return new MapFragment();
+            case NOTIFICATION:
+                return new NotificationFragment();
             default:
                 throw new IllegalArgumentException("Unknown fragment type: " + type);
         }

@@ -114,12 +114,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             });
 
             btnDecrease.setOnClickListener(v -> {
+                android.util.Log.d("CartAdapter", "btnDecrease clicked for: " + item.getBook().getName() + ", current quantity: " + item.getQuantity());
                 if (item.getQuantity() > 1 && listener != null) {
                     listener.onQuantityChanged(item, item.getQuantity() - 1);
                 }
             });
 
             btnIncrease.setOnClickListener(v -> {
+                android.util.Log.d("CartAdapter", "btnIncrease clicked for: " + item.getBook().getName() + ", current quantity: " + item.getQuantity());
                 if (listener != null) {
                     // Kiểm tra stock từ Book object
                     if (item.getBook() != null && item.getQuantity() < item.getBook().getQuantity()) {

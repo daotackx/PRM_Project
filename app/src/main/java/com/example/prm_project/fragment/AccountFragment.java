@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.example.prm_project.MainActivity;
 import com.example.prm_project.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -142,8 +143,11 @@ public class AccountFragment extends Fragment {
                 .setMessage("Bạn có chắc chắn muốn đăng xuất?")
                 .setPositiveButton("Đăng xuất", (dialog, which) -> {
                     auth.signOut();
-                    // Navigate to login
-                    requireActivity().finish();
+                    
+                    // Gọi method showLoggedOutMenu của MainActivity để chuyển về menu logged out
+                    if (getActivity() instanceof MainActivity) {
+                        ((MainActivity) getActivity()).showLoggedOutMenu();
+                    }
                 })
                 .setNegativeButton("Hủy", null)
                 .show();

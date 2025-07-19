@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Fix user data trước khi load UI
-        fixCurrentUserData();
+//
+//        // Fix user data trước khi load UI
+//        fixCurrentUserData();
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
             // Sử dụng Factory Pattern để tạo fragment
             if (itemId == R.id.nav_home) {
                 fragment = FragmentFactory.createFragment(FragmentFactory.FragmentType.HOME);
+            } else if (itemId == R.id.nav_notifications) {
+                fragment = FragmentFactory.createFragment(FragmentFactory.FragmentType.NOTIFICATION);
             } else if (itemId == R.id.nav_cart) {
                 fragment = FragmentFactory.createFragment(FragmentFactory.FragmentType.CART);
             } else if (itemId == R.id.nav_map) {
@@ -171,6 +173,9 @@ public class MainActivity extends AppCompatActivity {
 
         setupNavigationMenu(false);
         loadFragment(FragmentFactory.createFragment(FragmentFactory.FragmentType.HOME));
+        
+        // Đặt selection về Home sau khi logout
+        bottomNavigationView.setSelectedItemId(R.id.nav_home);
     }
 
     // Hàm được gọi sau khi đăng nhập thành công
