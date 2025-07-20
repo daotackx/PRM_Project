@@ -66,7 +66,15 @@ public class AccountFragment extends Fragment {
                 .addToBackStack(null)
                 .commit();
         });
-        layoutSupport.setOnClickListener(v -> navigateToSupport());
+        layoutSupport.setOnClickListener(v -> {
+            // Mở màn hình chat hỗ trợ
+            SupportChatFragment fragment = new SupportChatFragment();
+            requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragmentContainer, fragment)
+                .addToBackStack(null)
+                .commit();
+        });
         layoutLogout.setOnClickListener(v -> showLogoutDialog());
     }
 
